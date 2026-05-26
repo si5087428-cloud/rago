@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>콘텐츠 마케터 포트폴리오</title>
+    <!-- 구글 폰트 (감성적인 고딕/산세리프 스타일) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS Reset & Variables --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #F9F6F0; /* 부드러운 웜 베이지 */
+            color: #4A4A4A;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- Navigation --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(249, 246, 240, 0.8);
+            backdrop-filter: blur(5px);
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #7D6B5D;
+        }
+        nav a {
+            margin-left: 30px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #D4A373;
+        }
+
+        /* --- Hero Section (메인/서브 카피) --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: linear-gradient(135deg, #F9F6F0 0%, #F3E7E4 50%, #E2ECE9 100%);
+        }
+        .hero .sub-copy {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #9A8C98;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+        }
+        .hero .main-copy {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.4;
+            color: #4A3E3D;
+            margin-bottom: 40px;
+            word-break: keep-all;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+        .hero .scroll-btn {
+            padding: 12px 30px;
+            border: 1px solid #7D6B5D;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: #7D6B5D;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+        .hero .scroll-btn:hover {
+            background-color: #7D6B5D;
+            color: #FFF;
+            box-shadow: 0 10px 20px rgba(125, 107, 93, 0.15);
+        }
+
+        /* --- Project Section (Grid Layout) --- */
+        .projects {
+            padding: 120px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 80px;
+            color: #6B5B52;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 1px;
+            background: #6B5B52;
+            margin: 15px auto 0;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        .card {
+            background: #FFFFFF;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        /* 마우스 올렸을 때 카드 상호작용 */
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(154, 140, 152, 0.15);
+        }
+        
+        /* 임시 이미지 플레이스홀더를 감성적인 파스텔톤으로 대체 */
+        .card-img {
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFF;
+            font-size: 1.2rem;
+            font-weight: 500;
+            transition: transform 0.6s ease;
+        }
+        .card:hover .card-img {
+            transform: scale(1.03);
+        }
+        
+        /* 각 카드의 감성 파스텔 색상 배경 */
+        .bg-pink { background-color: #E8D7F1; color: #6D597A; }
+        .bg-green { background-color: #D8E2DC; color: #6B705C; }
+        .bg-peach { background-color: #FFE5D9; color: #B5838D; }
+
+        .card-desc {
+            padding: 30px;
+        }
+        .card-tag {
+            font-size: 0.8rem;
+            color: #9A8C98;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        .card-title {
+            font-size: 1.25rem;
+            color: #4A4A4A;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        .card-text {
+            font-size: 0.95rem;
+            color: #777;
+            margin-bottom: 20px;
+            word-break: keep-all;
+        }
+        .more-link {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #4A4A4A;
+            display: inline-block;
+            position: relative;
+        }
+        .more-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: #4A4A4A;
+            transition: width 0.3s ease;
+        }
+        .card:hover .more-link::after {
+            width: 50%;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #EAE5DC;
+            padding: 60px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #8A7A70;
+        }
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        /* --- Animation Keyframes --- */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 반응형 대응 */
+        @media (max-width: 768px) {
+            .hero .main-copy { font-size: 2.2rem; }
+            header { padding: 20px; }
+            .projects { padding: 80px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 상단 네비게이션 헤더 -->
+    <header>
+        <div class="logo">Mina's Archive</div>
+        <nav>
+            <a href="#work">Work</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+    <!-- 히어로 섹션 (메인/서브 카피) -->
+    <section class="hero">
+        <p class="sub-copy">Digital Content Marketing Portfolio</p>
+        <h1 class="main-copy">마음을 움직이는 텍스트,<br>트렌드를 담아내는 감성 브랜딩</h1>
+        <button class="scroll-btn" onclick="document.getElementById('work').scrollIntoView({behavior: 'smooth'});">Explore Projects</button>
+    </section>
+
+    <!-- 포트폴리오 프로젝트 그리드 섹션 -->
+    <section class="projects" id="work">
+        <h2 class="section-title">Selected Work</h2>
+        
+        <div class="grid">
+            <!-- Project 1 -->
+            <div class="card">
+                <div class="card-img bg-pink">SNS Campaign Editorial</div>
+                <div class="card-desc">
+                    <div class="card-tag">Brand Storytelling</div>
+                    <h3 class="card-title">A 뷰티 브랜드 론칭 캠페인 콘텐츠 기획</h3>
+                    <p class="card-text">비주얼 중심의 톤앤매너 정립 및 인스타그램 카드뉴스, 릴스 기획을 통해 한 달 만에 유기적 도달률 180%를 달성한 프로젝트입니다.</p>
+                    <a href="#" class="more-link">View Details</a>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="card">
+                <div class="card-img bg-green">Visual Concept Poster</div>
+                <div class="card-desc">
+                    <div class="card-tag">Design & Content</div>
+                    <h3 class="card-title">로컬 독립카페 발견 플랫폼 메인 비주얼 디자인</h3>
+                    <p class="card-text">감성적인 미니멀리즘 테마를 기반으로, 숨겨진 로컬 카페의 가치를 전달하는 상세페이지 헤더 비주얼 및 포스터 디자인을 총괄했습니다.</p>
+                    <a href="#" class="more-link">View Details</a>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="card">
+                <div class="card-img bg-peach">Data-Driven Growth</div>
+                <div class="card-desc">
+                    <div class="card-tag">Performance Marketing</div>
+                    <h3 class="card-title">인하 보이스 캠프 퍼포먼스 마케팅</h3>
+                    <p class="card-text">GA4와 GTM을 활용해 유입 경로를 추적하고, 타깃 맞춤형 카드뉴스를 제작 및 A/B 테스트하여 전환율을 25% 개선한 데이터 분석 경험입니다.</p>
+                    <a href="#" class="more-link">View Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>&copy; 2026. Lee Mina All rights reserved.</p>
+        <p style="font-size: 0.8rem; opacity: 0.7;">Contact: marketer_mina@email.com | +82 10-1234-5678</p>
+    </footer>
+
+</body>
+</html>
