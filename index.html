@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-PF8HZMCC');</script>
-<!-- End Google Tag Manager -->
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>디자인하는 기획자, 이수민의 마케팅 포트폴리오</title>
 <meta name="description" content="글로만 쓰는 기획을 넘어, 실제 유저가 반응하는 SNS 광고 소재까지 직접 만드는 마케팅 기획자 이수민입니다. 아이디어를 현실로 바꾸는 집요한 기획력과 감각적인 크리에이티브를 지금 확인해보세요.">
-    <!-- 구글 폰트 (감성적인 고딕/산세리프 스타일) -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <script type="application/ld+json">
     {
@@ -96,11 +93,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             box-sizing: border-box;
         }
         body {
-<!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PF8HZMCC"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-            font-family: 'Noto Sans KR', sans-serif;
+font-family: 'Noto Sans KR', sans-serif;
             background-color: #F9F6F0; /* 부드러운 웜 베이지 */
             color: #4A4A4A;
             line-height: 1.6;
@@ -297,6 +292,73 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             width: 50%;
         }
 
+        /* --- Blog Banner Section --- */
+        .blog-banner-container {
+            margin-top: 80px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        .blog-banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #FFFFFF;
+            padding: 25px 40px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 1120px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(125, 107, 93, 0.05);
+        }
+        .blog-banner:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(154, 140, 152, 0.1);
+            border-color: #D4A373;
+        }
+        .blog-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .blog-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #2DB400; /* 네이버 시그니처 그린 */
+            color: #FFFFFF;
+            font-weight: 900;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-family: 'Playfair Display', serif;
+            box-shadow: 0 4px 10px rgba(45, 180, 0, 0.2);
+        }
+        .blog-text-wrapper {
+            text-align: left;
+        }
+        .blog-banner-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #4A4A4A;
+            margin-bottom: 4px;
+        }
+        .blog-banner-subtitle {
+            font-size: 0.85rem;
+            color: #9A8C98;
+        }
+        .blog-arrow {
+            font-size: 1.2rem;
+            color: #7D6B5D;
+            transition: transform 0.3s ease;
+        }
+        .blog-banner:hover .blog-arrow {
+            transform: translateX(5px);
+            color: #D4A373;
+        }
+
         /* --- Footer --- */
         footer {
             background-color: #EAE5DC;
@@ -322,12 +384,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             .hero .main-copy { font-size: 2.2rem; }
             header { padding: 20px; }
             .projects { padding: 80px 20px; }
+            .blog-banner { flex-direction: column; gap: 20px; text-align: center; padding: 30px 20px; }
+            .blog-info { flex-direction: column; gap: 12px; }
+            .blog-text-wrapper { text-align: center; }
+            .blog-arrow { transform: rotate(90deg); }
+            .blog-banner:hover .blog-arrow { transform: rotate(90deg) translateY(5px); }
         }
     </style>
 </head>
 <body>
 
-    <!-- 상단 네비게이션 헤더 -->
     <header>
         <div class="logo">Mina's Archive</div>
         <nav>
@@ -336,19 +402,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </nav>
     </header>
 
-    <!-- 히어로 섹션 (메인/서브 카피) -->
     <section class="hero">
         <p class="sub-copy">Digital Content Marketing Portfolio</p>
         <h1 class="main-copy">마음을 움직이는 텍스트,<br>트렌드를 담아내는 감성 브랜딩</h1>
         <button class="scroll-btn" onclick="document.getElementById('work').scrollIntoView({behavior: 'smooth'});">Explore Projects</button>
     </section>
 
-    <!-- 포트폴리오 프로젝트 그리드 섹션 -->
     <section class="projects" id="work">
         <h2 class="section-title">Selected Work</h2>
         
         <div class="grid">
-            <!-- Project 1 -->
             <div class="card">
                 <div class="card-img bg-pink">SNS Campaign Editorial</div>
                 <div class="card-desc">
@@ -359,7 +422,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </div>
 
-            <!-- Project 2 -->
             <div class="card">
                 <div class="card-img bg-green">Visual Concept Poster</div>
                 <div class="card-desc">
@@ -370,7 +432,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </div>
 
-            <!-- Project 3 -->
             <div class="card">
                 <div class="card-img bg-peach">Data-Driven Growth</div>
                 <div class="card-desc">
@@ -381,9 +442,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </div>
         </div>
+
+        <div class="blog-banner-container">
+            <a href="https://blog.naver.com/llssmm061003" target="_blank" class="blog-banner" title="이수민 네이버 블로그 바로가기">
+                <div class="blog-info">
+                    <div class="blog-icon">N</div>
+                    <div class="blog-text-wrapper">
+                        <div class="blog-banner-title">Mina's Insight & Story 기록소</div>
+                        <div class="blog-banner-subtitle">마케팅 기획 트렌드와 일상의 크리에이티브 아카이브를 블로그에서 만나보세요.</div>
+                    </div>
+                </div>
+                <div class="blog-arrow">→</div>
+            </a>
+        </div>
     </section>
 
-    <!-- 푸터 -->
     <footer>
         <p>&copy; 2026. Lee Mina All rights reserved.</p>
         <p style="font-size: 0.8rem; opacity: 0.7;">Contact: marketer_mina@email.com | +82 10-1234-5678</p>
